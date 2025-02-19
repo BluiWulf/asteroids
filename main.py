@@ -40,13 +40,14 @@ def main():
                 sys.exit()
             for shot in shots:
                 if asteroid.collision(shot):
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
 
         for draw in drawable:
             draw.draw(screen)
         pygame.display.flip()
 
+        # Limit the framerate to 60FPS
         dt = clk.tick(60) / 1000
 
 if __name__ == "__main__":
